@@ -1,10 +1,20 @@
 :root {
+    /* These are variables used throughout the script. Change their values as you see fit!*/
     --one-button-width: 130px;
     --one-button-height: 130px;
     --one-button-position-bottom: 30px;
     --one-button-position-right: 15px;
-    
-    
+    --one-button-position-right: auto;
+
+    /* This will effect mobile (or any screens smaller then 800px) only! */
+    @media (max-width: 800px) {
+        --one-button-width: 100%;
+        --one-button-height: 130px;
+        --one-button-position-bottom: 0px;
+        --one-button-position-right: 0px;
+        --one-button-position-left: 0px;
+    }
+
     /*
         Set text to none (without quotation marks) to disable
         Default setting: 
@@ -27,12 +37,12 @@
         visibility: hidden;
         opacity: 0;
     }
-    
+
     83% {
         visibility: visible;
         opacity: 0;
     }
-    
+
     100% {
         visibility: visible;
         opacity: 1;
@@ -43,16 +53,16 @@
     user-select: none;
 }
 
-#field_berries.selected > div > a {
+#field_berries.selected>div>a {
     opacity: 1;
 }
 
-#field_berries.selected > div > a > img {
+#field_berries.selected>div>a>img {
     opacity: 0.5;
     transition: opacity 0.4s linear;
 }
 
-#field_berries.selected > div > a.selected > img {
+#field_berries.selected>div>a.selected>img {
     opacity: 1;
 }
 
@@ -62,6 +72,7 @@
 .fieldmon.cormyr::before,
 [href='/user/~clickback']::before,
 #claimfreeclick::before {
+    box-sizing: border-box;
     cursor: pointer;
     font-size: 48pt;
     line-height: 0;
@@ -77,7 +88,7 @@
     right: var(--one-button-position-right);
     transform-origin: 0px 0px;
     z-index: 999;
-    user-select: none;
+    user-select: all;
 }
 
 [href='/user/~clickback']::before {
@@ -161,5 +172,5 @@ label:has([data-key="fieldClickCount"])::after {
 #content:has([data-key="fieldClickCount"]:not(:checked)) .fieldmon.cormyr::before,
 #content:has([data-key="fieldClickCount"]:not(:checked)) button[data-action='next']::before,
 #content:has([data-key="fieldClickCount"]:not(:checked)) [href='/user/~clickback']::before {
-    content: none!important;
+    content: none !important;
 }
